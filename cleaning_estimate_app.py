@@ -1,5 +1,5 @@
+
 import streamlit as st
-st.set_page_config(page_title="Dust Busters Estimate App", page_icon="favicon.png")
 
 # Function to calculate cleaning estimates
 def calculate_estimates(square_footage, dirt_code, bedrooms, bathrooms, kids, pets):
@@ -29,13 +29,15 @@ kids = st.number_input("Number of Kids", min_value=0, value=0)
 pets = st.number_input("Number of Pets", min_value=0, value=0)
 
 # Calculate estimate
-deep, weekly, biweekly, monthly = calculate_estimates(square_footage, dirt_code, bedrooms, bathrooms, kids, pets)
-
-st.subheader("🧾 Estimate Breakdown:")
-st.write(f"**Deep Cleaning Price:** ${deep:.2f}")
-st.write(f"**Weekly Price:** ${weekly:.2f}")
-st.write(f"**Bi-Weekly Price:** ${biweekly:.2f}")
-st.write(f"**Monthly Price:** ${monthly:.2f}")
+if st.button("Calculate Estimate"):
+    deep, weekly, biweekly, monthly = calculate_estimates(square_footage, dirt_code, bedrooms, bathrooms, kids, pets)
+    
+    # Display results
+    st.subheader("📝 Estimate Breakdown:")
+    st.write(f"**Deep Cleaning Price:** ${deep:.2f}")
+    st.write(f"**Weekly Price:** ${weekly:.2f}")
+    st.write(f"**Bi-Weekly Price:** ${biweekly:.2f}")
+    st.write(f"**Monthly Price:** ${monthly:.2f}")
 
 # Mobile-friendly layout with Streamlit's built-in responsiveness
 st.caption("🔹 Dust Busters Cleaning Service - Internal Use Only")
