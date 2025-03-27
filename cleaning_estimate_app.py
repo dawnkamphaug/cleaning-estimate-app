@@ -1,4 +1,5 @@
 import streamlit as st
+st.set_page_config(page_title="Dust Busters Estimate App", page_icon="favicon.png")
 
 # Function to calculate cleaning estimates
 def calculate_estimates(square_footage, dirt_code, bedrooms, bathrooms, kids, pets):
